@@ -1,5 +1,3 @@
-# ite153p1
-
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -12,13 +10,37 @@
 
 changeShow() {
 
-	var show = parseInt( document.getElementById("show").value;
+	var show = parseInt( document.getElementById("show").value );
 	document.getElementById("output") = show;
 }
 
+vipmemb() {
+
+	if parseInt( document.getElementById("vipmem").checked == true ) {
+	
+		vipmem = 10
+	}
+	else {
+	
+		vipmem = 0
+	}
+		
+		
+
+
 purchaseTix() {
 
-	var numtix = parseInt(
+	var numtix = parseInt( document.getElementById("numtix").value );
+	
+	
+	// calculate
+	var total = (show * numtix) - vipmem;
+	
+	// construct output
+	var msg = "<div>Results of your order</div>
+	msg = "<div>Selected event: " + show + "</div>
+	
+	
 
 
 
@@ -101,7 +123,7 @@ body {
 			<input type="text" class="formfield" id="numtix">
 			
 			<div class="formtext">Are you a VIP member</div>
-			<input type="checkbox" id="vipmem" /> Yes I am ($10.00 discount on total order)
+			<input type="checkbox" id="vipmem" onchange="vipmemb()"/> Yes I am ($10.00 discount on total order)
 		
 			<div style="margin-top:10px;">
 				<input type="button" value="Order Tickets" id="orderbutton" onClick="purchaseTix()">
